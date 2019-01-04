@@ -1,0 +1,19 @@
+<h1>Create a new campaign!</h1>
+<%= form_for @campaign do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br />
+
+<%= f.label :max_players %>
+<%= f.text_field :max_players %><br />
+
+<%= f.label :current_players %>
+<%= f.text_field :current_players %><br />
+
+<%= f.label :average_level %>
+<%= f.text_field :average_level %><br />
+
+<%= f.label :location %>
+<%= f.text_field :location %><br />
+
+<%=f.submit  %>
+<% end %>   

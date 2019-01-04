@@ -1,0 +1,27 @@
+<h1>Welcome to Henchman!</h1>
+Henchman is an app for the Pathfinder RPG that that pairs GMs and players together.
+
+<h2> Campaigns as GM </h2>
+<ul>
+<% current_user.campaigns.each do |campaign| %>
+<li><%= link_to campaign.name, campaign %></li>
+<% end %>
+</ul>
+<%= link_to 'Create a Campaign', new_campaign_path %><br />
+<%= link_to 'View Requests', user_requests_url %>
+
+<h2> Campaigns as Player </h2>
+
+
+
+<%= link_to 'Look for a campaign', new_request_path %>
+
+<h2> Your characters</h2>
+<ul>
+<% current_user.characters.each do |character| %>
+<li><%= link_to character.name, character %></li>
+<% end %>
+</ul>
+<%= link_to 'Create a new character!', new_character_path %>
+
+

@@ -1,0 +1,8 @@
+<h1><%= @campaign.name %></h1>
+<p>An adventure for <%= @campaign.max_players %> level <%= @campaign.average_level %>    characters.<p>
+<p>Location: <%= @campaign.location %><p>  
+
+
+<%= link_to 'Return to User Dashboard', current_user %><br />
+<%= link_to 'Delete this Campaign', @campaign, method: :delete %><br />
+<%= link_to 'Edit this Campaign', edit_campaign_path %>

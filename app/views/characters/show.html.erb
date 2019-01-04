@@ -1,0 +1,7 @@
+<h1><%= @character.name %>, Level <%= @character.level %> <%= @character.char_class %></h1>
+
+<p><%= @character.alignment %> <%= @character.race %></p>
+<%= link_to 'Add This Character to a Campaign', character_path %><br />
+<%= link_to 'Edit This Character', edit_character_path %><br />
+<%= link_to 'Return to User Dashboard', users_path %><br />
+<%= link_to 'Delete this character.', @character, method: :delete %>

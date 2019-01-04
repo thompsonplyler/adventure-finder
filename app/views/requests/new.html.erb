@@ -1,0 +1,13 @@
+<h1>Look for an open campaign</h1>
+
+<%= form_for @request do |f| %>
+<%= f.collection_select :campaign_id, valid_campaigns, :id, :name %><br />
+<%= f.collection_select :character_id, current_user.characters, :id, :name %><br />
+<%= f.submit %>
+<% end %>
+<ul>
+<% valid_campaigns.each do |campaign|%>
+<li><%= link_to campaign.name, campaign %></li>
+<% end%>
+</ul>
+<%= link_to 'Return to User Dashboard', current_user %>

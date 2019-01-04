@@ -1,0 +1,6 @@
+<h1>Pending Requests</h1>
+<ul>
+<% @requests.each do |r| %>
+<li><%= link_to Character.find(r.character_id).name, Character.find(r.character_id) %> for <%= "#{Campaign.find(r.campaign_id).name }" %> <%= button_to "Approve", request_path, method: :patch %></li>
+<% end %>
+</ul>

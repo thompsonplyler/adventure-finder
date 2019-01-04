@@ -1,0 +1,19 @@
+<h1>Create a new PC!</h1>
+<%= form_for @character do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br />
+
+<%= f.label :level %>
+<%= f.text_field :level %><br />
+
+<%= f.label :race %>
+<%= f.text_field :race %><br />
+
+<%= f.label :char_class %>
+<%= f.text_field :char_class %><br />
+
+<%= f.label :alignment %>
+<%= f.text_field :alignment %><br />
+
+<%= f.submit  %>
+<% end %>

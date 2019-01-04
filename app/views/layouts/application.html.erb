@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pathfinder Henchman</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    <%= yield %>
+    <br />
+    <% if current_user %>
+    You're logged in as <%= current_user.email %><br />
+   <%= link_to 'Logout', logout_path %>
+    <% end %>
+     
+  </body>
+</html>

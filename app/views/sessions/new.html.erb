@@ -1,0 +1,9 @@
+<h1>Please login</h1>
+<%= form_tag(sessions_path) do %>
+E-mail address: <%= text_field_tag :email %>
+Password: <%= text_field_tag :password %>
+<%= submit_tag "Login" %>
+<% end %>
+<br />
+Don't have an account? <%= link_to 'Register here.', new_user_path %>
+

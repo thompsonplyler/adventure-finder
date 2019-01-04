@@ -1,0 +1,14 @@
+<section class="intro" id="zen-intro">
+    <header role="banner">
+		<h1>Campaign List</h1>
+	</header>
+<div class="preamble" id="zen-preamble" role="article">
+<ul>
+<% @campaigns.each do |campaign|%>
+<li><%= link_to campaign.name, campaign %> </li>
+<% end%>
+</ul>
+</div>
+
+<p> This is a test for the CSS</p>
+<%= link_to 'Create a New Campaign', new_campaign_path %>
