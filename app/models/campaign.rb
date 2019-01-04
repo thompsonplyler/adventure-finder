@@ -25,7 +25,7 @@ class Campaign < ApplicationRecord
     end
         
     def self.user_campaigns(user)
-        not_mine(user).select{|c| !e(c.characters & user.characters).empty?}
+        not_mine(user).select{|c| !(c.characters & user.characters).empty?}
     end
 
 

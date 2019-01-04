@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/users/:id/requests', to: 'users#requests', as: "user_requests"
   patch '/users/:id/requests', to: 'requests#update', as: 'update_request'
   post '/users/:id/requests', to: 'requests#destroy', as: 'destroy_request'
+  # post '/campaigns/:id' to: 'campaigns_users#destroy', as: 'destroy_cc'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -39,7 +39,7 @@ class CharactersController < ApplicationController
     def destroy
         @character = Character.find(params[:id])
         @character.destroy
-        redirect_to users_path
+        redirect_to current_user
     end
 
     private
