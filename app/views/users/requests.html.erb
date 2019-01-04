@@ -1,6 +1,9 @@
 <h1>Pending Requests</h1>
 <ul>
 <% @requests.each do |r| %>
-<li><%= link_to Character.find(r.character_id).name, Character.find(r.character_id) %> for <%= "#{Campaign.find(r.campaign_id).name }" %> <%= button_to "Approve", request_path, method: :patch %></li>
+<li><%= link_to Character.find(r.character_id).name, Character.find(r.character_id) %> for <%= "#{Campaign.find(r.campaign_id).name }" %> <%= button_to "Approve", update_request_path, method: :patch, params: {:r_id => r.id}%>
+<%= button_to "Deny", destroy_request_path, method: :delete, params: {:r_id => r.id}%>
+</li>
 <% end %>
 </ul>
+<%= link_to 'Return to User Dashboard', current_user %>

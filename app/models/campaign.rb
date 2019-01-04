@@ -15,4 +15,11 @@ class Campaign < ApplicationRecord
         Campaign.all.select{|campaign| campaign.space_available?}
     end
 
+    def add_character(character)
+        CampaignsCharacter.create(campaign:self, character:character)
+        self.current_players += 1
+    end
+
+
+
 end

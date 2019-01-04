@@ -11,7 +11,13 @@ Henchman is an app for the Pathfinder RPG that that pairs GMs and players togeth
 <%= link_to 'View Requests', user_requests_url %>
 
 <h2> Campaigns as Player </h2>
-
+<ul>
+<% @my_cams.each do |c| %>
+<li>
+<%= link_to c.name, c %>
+</li>
+<% end %>
+</ul>
 
 
 <%= link_to 'Look for a campaign', new_request_path %>

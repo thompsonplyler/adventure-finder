@@ -16,13 +16,12 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
+        @my_cams = not_mine
     end
 
     def requests
         @user = current_user 
-        @requests = @user.campaigns
-        @char_requests = character_requests
-        @campaigns = @user.campaigns
+        @requests = valid_requests
     end
 
     # find requests
@@ -32,6 +31,18 @@ class UsersController < ApplicationController
    
 
     private
+
+    def not_mine
+        Campaign.all.select{|c| c.user_id != current_user.id}
+    end
+
+    def user_campaigns
+        not_mine.all.select{|c| c.characters & current_user.characters}
+    end
+
+    def valid_requests
+        Request.all.select{|request|request.user_id != current_user.id}
+    end
 
     def character_requests
         current_user.requests.collect {|r| Character.find(r.character_id)}

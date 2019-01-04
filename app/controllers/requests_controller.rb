@@ -15,21 +15,17 @@ class RequestsController < ApplicationController
     end
 
     def destroy
-        @request = Request.find(params[:id])
-    @request.destroy
+        @request = Request.find(params[:r_id])
+        @request.destroy
         redirect_to current_user
     end
 
     def update
-        @request = Request.find(params[:id])
+        # byebug
+        @request = Request.find(params[:r_id])
         @request.status = true
-        @camp_char = CampaignsCharacter.new
-        @camp_char.character_id = @request.character_id
-        @camp_char.campaign_id = @request.campaign_id
-        @camp_char.save
-        @request.campaign.characters << @request.character
-        @request.campaign.save
-        @request.character.save
+        @request.campaign.add_character(@request.character)
+        @request.destroy
         redirect_to current_user
     end
 
