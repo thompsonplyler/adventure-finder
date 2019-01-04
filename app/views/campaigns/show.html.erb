@@ -5,10 +5,12 @@
 <h2>Current characters</h2>
 <ul>
 <% @campaign.characters.each do |c| %>
-<li><%= "#{c.name}, #{c.alignment} Level #{c.level} #{c.race} #{c.char_class}" %></li>
+<li><%= link_to "#{c.name}, #{c.alignment} Level #{c.level} #{c.race} #{c.char_class}", c %></li>
 <% end%>
 </ul>
 
-<%= link_to 'Return to User Dashboard', current_user %><br />
+<% if @campaign.user_id == current_user.id %>
+<%= link_to 'Edit this Campaign', edit_campaign_path %><br />
 <%= link_to 'Delete this Campaign', @campaign, method: :delete %><br />
-<%= link_to 'Edit this Campaign', edit_campaign_path %>
+<% end %>
+<%= link_to 'Return to User Dashboard', current_user %><br />

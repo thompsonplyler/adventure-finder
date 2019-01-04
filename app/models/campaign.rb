@@ -20,6 +20,13 @@ class Campaign < ApplicationRecord
         self.current_players += 1
     end
 
+    def self.not_mine(user)
+        Campaign.all.select{|c| c.user_id != user.id}
+    end
+        
+    def self.user_campaigns(user)
+        not_mine(user).select{|c| !e(c.characters & user.characters).empty?}
+    end
 
 
 end

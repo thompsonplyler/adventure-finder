@@ -9,7 +9,7 @@ class CharactersController < ApplicationController
         @character = Character.new(character_params)
         @character.user_id = current_user.id
         @character.save
-        redirect_to users_path
+        redirect_to current_user
     end
 
     def index

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             session[:user_id] = @user.id
-            redirect_to "/"
+            redirect_to current_user
         else
             render new_user_path
         end
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = current_user
-        @my_cams = not_mine
+        @my_cams = Campaign.user_campaigns(@user)
     end
 
     def requests
@@ -31,14 +31,6 @@ class UsersController < ApplicationController
    
 
     private
-
-    def not_mine
-        Campaign.all.select{|c| c.user_id != current_user.id}
-    end
-
-    def user_campaigns
-        not_mine.all.select{|c| c.characters & current_user.characters}
-    end
 
     def valid_requests
         Request.all.select{|request|request.user_id != current_user.id}
